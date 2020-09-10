@@ -8,6 +8,8 @@ import { FirestoreService } from "../shared/firestore.service";
     templateUrl: "./calendar.component.html"
 })
 export class CalendarComponent implements OnInit {
+    items = [];
+    condition: boolean = false;
 
     constructor(private firestoreService: FirestoreService) {
         // Use the component constructor to inject providers.
@@ -15,11 +17,20 @@ export class CalendarComponent implements OnInit {
 
     ngOnInit(): void {
         // Init your component properties here.
-        console.log(this.firestoreService.GetDataCalendar())
+        console.log()
+        this.loadDataBase()
     }
 
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
+    }
+
+    loadDataBase() {
+        //this.snackBarSimple("Cargando datos...");
+        this.firestoreService.GetDataCalendar().then(result => {
+            this.items = result;
+            if (this.items.length > 0) this.condition = true;
+        });
     }
 }

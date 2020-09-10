@@ -7,9 +7,14 @@ import { AppComponent } from "./app.component";
 
 import { NativeScriptMaterialCardViewModule } from "nativescript-material-cardview/angular";
 
+import { FirestoreService } from "./shared/firestore.service"
+
 @NgModule({
     bootstrap: [
         AppComponent
+    ],
+    providers: [
+        FirestoreService,
     ],
     imports: [
         AppRoutingModule,

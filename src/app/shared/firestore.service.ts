@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { firestore } from "nativescript-plugin-firebase";
 
-//const firebase = require("nativescript-plugin-firebase/app");
-
 @Injectable()
 export class FirestoreService {
 
