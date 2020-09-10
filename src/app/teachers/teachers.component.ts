@@ -1,15 +1,18 @@
 import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
+import teachers from "~/json/teachers.json";
 
 @Component({
-    selector: "Search",
-    templateUrl: "./search.component.html"
+    selector: "Teachers",
+    templateUrl: "./teachers.component.html"
 })
-export class SearchComponent implements OnInit {
+export class TeachersComponent implements OnInit {
+    items: any;
 
     constructor() {
         // Use the component constructor to inject providers.
+        this.items = teachers;
     }
 
     ngOnInit(): void {

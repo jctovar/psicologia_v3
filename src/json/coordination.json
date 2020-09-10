@@ -1,5 +1,6 @@
 [
     {
+      "id": "1",
       "title": "Coordinadora de Educación a Distancia",
       "name": "Dra. Anabel de la Rosa Gómez",
       "email": "coordinacion@iztacala.unam.mx",
@@ -7,6 +8,7 @@
       "image": "~/images/avatars/anabel.jpg"
     },
     {
+      "id": "2",
       "title": "Jefa de la Departamento de Desarrollo Académico y Extensión",
       "name": "Mtra. Karen Belén Espinoza Rosal",
       "email": "desarrolloacademico@iztacala.unam.mx",
@@ -14,6 +16,7 @@
       "image": "~/images/avatars/karen.jpg"
     },
     {
+      "id": "3",
       "title": "Jefe del Departamento de Plataformas Educativas",
       "name": "Ing. Juan Carlos Tovar Gómez",
       "email": "desarrollotecnologico@iztacala.unam.mx",
@@ -21,6 +24,7 @@
       "image": "~/images/avatars/jctovar.jpg"
     },
     {
+      "id": "4",
       "title": "Jefa del Departamento de Asuntos Estudiantiles",
       "name": "Mtra. Silvia Toledo de León",
       "email": "asuntosestudiantiles@iztacala.unam.mx",
@@ -28,6 +32,7 @@
       "image": "~/images/avatars/silvia.jpg"
     },
     {
+      "id": "5",
       "title": "Jefa de Sección Académica de Vinculación y Proyectos Educativos",
       "name": "Mtra. Alejandra Pamela Saldaña Badillo",
       "email": "proyectoseducativos@iztacala.unam.mx",

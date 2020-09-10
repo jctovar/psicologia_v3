@@ -23,4 +23,8 @@ export class FeaturedComponent implements OnInit {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
     }
+
+    showItem(item) {
+        console.log(item);
+    }
 }
