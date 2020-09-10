@@ -1,8 +1,8 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 
-import { FeaturedRoutingModule } from "./featured-routing.module";
-import { FeaturedComponent } from "./featured.component";
+import { FeaturedRoutingModule } from "./coordination-routing.module";
+import { FeaturedComponent } from "./coordination.component";
 
 @NgModule({
     imports: [

@@ -1,15 +1,18 @@
 import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
+import coordination from "~/json/coordination.json";
 
 @Component({
     selector: "Featured",
-    templateUrl: "./featured.component.html"
+    templateUrl: "./coordination.component.html"
 })
 export class FeaturedComponent implements OnInit {
+    items: any;
 
     constructor() {
         // Use the component constructor to inject providers.
+        this.items = coordination;
     }
 
     ngOnInit(): void {
