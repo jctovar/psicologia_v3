@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
-import teachers from "~/json/teachers.json";
+import db from "~/json/teachers.json";
 
 @Component({
     selector: "Teachers",
@@ -12,7 +12,7 @@ export class TeachersComponent implements OnInit {
 
     constructor() {
         // Use the component constructor to inject providers.
-        this.items = teachers;
+        this.items = db.teachers;
     }
 
     ngOnInit(): void {
