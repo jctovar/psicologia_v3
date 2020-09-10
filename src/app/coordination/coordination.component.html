@@ -8,11 +8,13 @@
 <ScrollView class="page__content">
     <ListView [items]="items">
         <ng-template let-item="item">
-            <StackLayout>
-                <Label class="item_name" [nsRouterLink]="['../item', item.id]" [text]="item.name"></Label>
-                <Label class="item_title" [nsRouterLink]="['../item', item.id]" [text]="item.title"></Label>
-                <Label class="item_email" [nsRouterLink]="['../item', item.id]" [text]="item.email"></Label>
-            </StackLayout>
+            <GridLayout columns="60, *, 50" rows="*, *, auto">
+                <Image class="img-circle"  [src]="item.image" horizontalAlignment="center" width="50" height="50" row="0" col="0" rowspan="3"></Image>
+                <Label class="item_name" [nsRouterLink]="['../item', item.id]" [text]="item.name" row="0" col="1"></Label>
+                <Label class="item_title" [nsRouterLink]="['../item', item.id]" [text]="item.title" row="1" col="1"></Label>
+                <Label class="item_email" [nsRouterLink]="['../item', item.id]" [text]="item.email"row="2" col="1"></Label>
+                <Button text="&#xf105;" class="far -simple -rounded-lg" (tap)="shareEvent(item)" width="50px" row="0" col="2" rowspan="3" horizontalAlignment="right"></Button>
+            </GridLayout>
         </ng-template>
     </ListView>
 </ScrollView>

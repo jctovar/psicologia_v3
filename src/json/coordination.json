@@ -4,34 +4,34 @@
       "name": "Dra. Anabel de la Rosa Gómez",
       "email": "coordinacion@iztacala.unam.mx",
       "phone": "55·5623·1344",
-      "image": "anabel.jpg"
+      "image": "~/images/avatars/anabel.jpg"
     },
     {
       "title": "Jefa de la Departamento de Desarrollo Académico y Extensión",
       "name": "Mtra. Karen Belén Espinoza Rosal",
       "email": "desarrolloacademico@iztacala.unam.mx",
       "phone": "55·5623·1301",
-      "image": "karen.jpg"
+      "image": "~/images/avatars/karen.jpg"
     },
     {
       "title": "Jefe del Departamento de Plataformas Educativas",
       "name": "Ing. Juan Carlos Tovar Gómez",
       "email": "desarrollotecnologico@iztacala.unam.mx",
       "phone": "55·5623·1300",
-      "image": "jctovar.jpg"
+      "image": "~/images/avatars/jctovar.jpg"
     },
     {
       "title": "Jefa del Departamento de Asuntos Estudiantiles",
       "name": "Mtra. Silvia Toledo de León",
       "email": "asuntosestudiantiles@iztacala.unam.mx",
       "phone": "55·5623·1119",
-      "image": "silvia.jpg"
+      "image": "~/images/avatars/silvia.jpg"
     },
     {
       "title": "Jefa de Sección Académica de Vinculación y Proyectos Educativos",
       "name": "Mtra. Alejandra Pamela Saldaña Badillo",
       "email": "proyectoseducativos@iztacala.unam.mx",
       "phone": "55·5623·1344",
-      "image": "pamela.jpg"
+      "image": "~/images/avatars/pamela.jpg"
     }
   ]
