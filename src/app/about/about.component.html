@@ -1,0 +1,24 @@
+<ActionBar title="Acerca">
+    <!--  android -->
+    <NavigationButton ios:visibility="collapsed" icon="font://&#xf0c9;" class="far icon-drawer" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!--  ios -->
+    <ActionItem icon="font://&#xf0c9;" class="far icon-drawer" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left"></ActionItem>
+</ActionBar>
+
+<ScrollView class="page__content">
+    <GridLayout columns="*" rows="auto">
+        <MDCardView margin="10">
+            <GridLayout columns="*, auto" rows="*, *, auto">
+                <StackLayout class="image_bg" row="0" col="0">
+                </StackLayout>
+                <Image class="logo" src="~/images/logo.png"></Image>
+                <StackLayout orientation="vertical" row="2" col="0" horizontalAlignment="left" marginTop="40px">
+                    <Label textWrap="true" [text]="data.info" class="label-info"></Label>
+                    <Label textWrap="true" [text]="data.address" class="label-info"></Label>
+                    <Label textWrap="true" [text]="data.copyright" class="label-copyright"></Label>
+                </StackLayout>
+            </GridLayout>
+            
+        </MDCardView>
+    </GridLayout>
+</ScrollView>

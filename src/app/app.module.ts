@@ -5,6 +5,8 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
+import { NativeScriptMaterialCardViewModule } from "nativescript-material-cardview/angular";
+
 @NgModule({
     bootstrap: [
         AppComponent
@@ -12,7 +14,8 @@ import { AppComponent } from "./app.component";
     imports: [
         AppRoutingModule,
         NativeScriptModule,
-        NativeScriptUISideDrawerModule
+        NativeScriptUISideDrawerModule,
+        NativeScriptMaterialCardViewModule
     ],
     declarations: [
         AppComponent
