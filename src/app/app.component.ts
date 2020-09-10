@@ -4,6 +4,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nativescript-ui-sidedrawer";
 import { filter } from "rxjs/operators";
 import * as app from "tns-core-modules/application";
+import { initFirebase } from "./shared/firebase.common";
 
 @Component({
     selector: "ns-app",
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        initFirebase();
         this._activatedUrl = "/home";
         this._sideDrawerTransition = new SlideInOnTopTransition();
 

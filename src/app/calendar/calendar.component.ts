@@ -1,19 +1,21 @@
 import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
+import { FirestoreService } from "../shared/firestore.service";
 
 @Component({
-    selector: "Browse",
-    templateUrl: "./browse.component.html"
+    selector: "Calendar",
+    templateUrl: "./calendar.component.html"
 })
-export class BrowseComponent implements OnInit {
+export class CalendarComponent implements OnInit {
 
-    constructor() {
+    constructor(private firestoreService: FirestoreService) {
         // Use the component constructor to inject providers.
     }
 
     ngOnInit(): void {
         // Init your component properties here.
+        console.log(this.firestoreService.GetDataCalendar())
     }
 
     onDrawerButtonTap(): void {
