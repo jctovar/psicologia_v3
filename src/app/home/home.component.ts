@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
     readRSS() {
         getJSON("https://suayed.iztacala.unam.mx/feed/json").then((result: any) => {
             this.data = result.items;
-            console.log(this.data);
+            //console.log(this.data);
             if (this.data.length > 0) this.condition = true;
         }, (e) => {
         });
