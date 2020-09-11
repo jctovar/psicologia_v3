@@ -6,10 +6,13 @@ import { HomeComponent } from "./home.component";
 
 import { HomeDetailComponent } from "./home-detail/home-detail.component";
 
+import { SafePipeModule } from 'safe-pipe';
+
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        HomeRoutingModule
+        HomeRoutingModule,
+        SafePipeModule
     ],
     declarations: [
         HomeComponent,

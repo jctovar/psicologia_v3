@@ -10,12 +10,15 @@ import { NativeScriptMaterialActivityIndicatorModule } from "nativescript-materi
 
 import { FirestoreService } from "./shared/firestore.service"
 
+import { SafePipeModule } from 'safe-pipe';
+
 @NgModule({
     bootstrap: [
         AppComponent
     ],
     providers: [
         FirestoreService,
+        SafePipeModule
     ],
     imports: [
         AppRoutingModule,

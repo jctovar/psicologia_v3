@@ -4,5 +4,5 @@
 </ActionBar>
 
 <GridLayout>
-    <WebView [src]="item.content_text"></WebView>
+    <WebView [src]="item.content_html | safe: 'html'"></WebView>
 </GridLayout>
