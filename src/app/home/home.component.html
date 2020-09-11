@@ -5,7 +5,26 @@
     <ActionItem icon="font://&#xf0c9;" class="far icon-drawer" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left"></ActionItem>
 </ActionBar>
 
-<GridLayout class="page__content">
-    <Label class="page__content-icon fas" text="&#xf015;"></Label>
-    <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<ScrollView class="page">
+    <StackLayout *ngIf="condition">
+        <MDCardView *ngFor="let item of data" ripple="true" margin="10">
+            <GridLayout columns="*, *" rows="1*, *, auto" padding="0">
+                <Image borderRadius="5 5 0 0" [src]="item.image" row="0" col="0" colSpan="2"></Image>
+                <StackLayout padding="5 10 0 10" row="1" col="0" colSpan="2" [nsRouterLink]="['/event', item]">
+                    <Label class="h4 bold" textWrap="true" textTransform="uppercase" [text]="item.title"></Label>
+                </StackLayout>
+                <StackLayout padding="10" row="2" col="0" horizontalAlignment="left">
+                    <Label class="h5 text-primary card-description" textAlignment="right" textWrap="true" [text]="item.date_published | date: 'mediumDate'"></Label>
+                </StackLayout>
+                <StackLayout orientation="horizontal" row="2" col="1" horizontalAlignment="right">
+                    <Button text="&#xf1e0;" class="far -simple -rounded-lg" (tap)="shareEvent(item)" width="60px"></Button>
+                    <Button text="&#xf004;" class="far -simple -rounded-lg" (tap)="likesEvent(item)" width="60px"></Button>
+                </StackLayout>
+            </GridLayout>
+        </MDCardView>
+    </StackLayout>
+    <StackLayout *ngIf="!condition" orientation="vertical" width="210" height="210">
+        <MDActivityIndicator busy="true" color="red"></MDActivityIndicator>
+        <Image src="~/images/bg_01.png"></Image>
+    </StackLayout>
+</ScrollView>
