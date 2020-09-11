@@ -2,7 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { getFile, getImage, getJSON, getString, request, HttpResponse } from "tns-core-modules/http";
-import { reloadUser } from "nativescript-plugin-firebase";
+import { ActivityIndicator } from "tns-core-modules/ui/activity-indicator";
+import { EventData, Observable } from "tns-core-modules/data/observable";
+import { Page } from "tns-core-modules/ui/page";
 
 @Component({
     selector: "Home",

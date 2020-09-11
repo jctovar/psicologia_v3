@@ -6,6 +6,9 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
 import { NativeScriptMaterialCardViewModule } from "nativescript-material-cardview/angular";
+import { NativeScriptMaterialActivityIndicatorModule } from "nativescript-material-activityindicator/angular";
+
+
 
 import { FirestoreService } from "./shared/firestore.service"
 
@@ -20,7 +23,8 @@ import { FirestoreService } from "./shared/firestore.service"
         AppRoutingModule,
         NativeScriptModule,
         NativeScriptUISideDrawerModule,
-        NativeScriptMaterialCardViewModule
+        NativeScriptMaterialCardViewModule,
+        NativeScriptMaterialActivityIndicatorModule
     ],
     declarations: [
         AppComponent

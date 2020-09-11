@@ -4,13 +4,16 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { TeachersRoutingModule } from "./teachers-routing.module";
 import { TeachersComponent } from "./teachers.component";
 
+import { TeachersDetailComponent } from "./teachers-detail/teachers-detail.component";
+
 @NgModule({
     imports: [
         NativeScriptCommonModule,
         TeachersRoutingModule
     ],
     declarations: [
-        TeachersComponent
+        TeachersComponent,
+        TeachersDetailComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
