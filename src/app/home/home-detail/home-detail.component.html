@@ -1,8 +1,8 @@
 <ActionBar>
     <NavigationButton (tap)="onBackTap()" android.systemIcon="ic_menu_back"></NavigationButton>
-    <Label [text]="item.name"></Label>
+    <Label [text]="item.title"></Label>
 </ActionBar>
 
 <GridLayout>
-    
+    <WebView [src]="item.content_text"></WebView>
 </GridLayout>

@@ -7,6 +7,8 @@ import { EventData, Observable } from "tns-core-modules/data/observable";
 import { Page } from "tns-core-modules/ui/page";
 import * as SocialShare from "nativescript-social-share";
 
+var cache = require("nativescript-cache");
+
 @Component({
     selector: "Home",
     templateUrl: "./home.component.html"
@@ -33,7 +35,10 @@ export class HomeComponent implements OnInit {
         getJSON("https://suayed.iztacala.unam.mx/feed/json").then((result: any) => {
             this.data = result.items;
             //console.log(this.data);
-            if (this.data.length > 0) this.condition = true;
+            if (this.data.length > 0) {
+                this.condition = true;
+                cache.set("wordpress", JSON.stringify(this.data));
+            } 
         }, (e) => {
         });
     }
@@ -44,6 +49,6 @@ export class HomeComponent implements OnInit {
     }
 
     save(item) {
-        
+
     }
 }
