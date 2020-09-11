@@ -10,6 +10,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 })
 export class HomeDetailComponent implements OnInit {
     //item: DataItem;
+    item = [];
 
     constructor(
        // private _data: DataService,

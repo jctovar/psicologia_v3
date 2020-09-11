@@ -8,8 +8,6 @@ import { AppComponent } from "./app.component";
 import { NativeScriptMaterialCardViewModule } from "nativescript-material-cardview/angular";
 import { NativeScriptMaterialActivityIndicatorModule } from "nativescript-material-activityindicator/angular";
 
-
-
 import { FirestoreService } from "./shared/firestore.service"
 
 @NgModule({

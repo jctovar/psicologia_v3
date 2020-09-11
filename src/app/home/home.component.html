@@ -9,16 +9,16 @@
     <StackLayout *ngIf="condition">
         <MDCardView *ngFor="let item of data" ripple="true" margin="10">
             <GridLayout columns="*, *" rows="1*, *, auto" padding="0">
-                <Image borderRadius="5 5 0 0" [src]="item.image" row="0" col="0" colSpan="2"></Image>
-                <StackLayout padding="5 10 0 10" row="1" col="0" colSpan="2" [nsRouterLink]="['/event', item]">
-                    <Label class="h4 bold" textWrap="true" textTransform="uppercase" [text]="item.title"></Label>
+                <Image borderRadius="5 5 0 0" [src]="item.image" row="0" col="0" colSpan="2" [nsRouterLink]="['item', item.id]"></Image>
+                <StackLayout padding="5 10 0 10" row="1" col="0" colSpan="2">
+                    <Label class="label-title" textWrap="true" textTransform="uppercase" [text]="item.title" [nsRouterLink]="['item', item.id]"></Label>
                 </StackLayout>
                 <StackLayout padding="10" row="2" col="0" horizontalAlignment="left">
                     <Label class="h5 text-primary card-description" textAlignment="right" textWrap="true" [text]="item.date_published | date: 'mediumDate'"></Label>
                 </StackLayout>
                 <StackLayout orientation="horizontal" row="2" col="1" horizontalAlignment="right">
-                    <Button text="&#xf1e0;" class="far -simple -rounded-lg" (tap)="shareEvent(item)" width="60px"></Button>
-                    <Button text="&#xf004;" class="far -simple -rounded-lg" (tap)="likesEvent(item)" width="60px"></Button>
+                    <Button text="&#xf1e0;" class="far -simple -rounded-lg" (tap)="share(item)" width="60px"></Button>
+                    <Button text="&#xf004;" class="far -simple -rounded-lg" (tap)="save(item)" width="60px"></Button>
                 </StackLayout>
             </GridLayout>
         </MDCardView>

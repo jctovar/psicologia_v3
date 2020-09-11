@@ -5,6 +5,7 @@ import { getFile, getImage, getJSON, getString, request, HttpResponse } from "tn
 import { ActivityIndicator } from "tns-core-modules/ui/activity-indicator";
 import { EventData, Observable } from "tns-core-modules/data/observable";
 import { Page } from "tns-core-modules/ui/page";
+import * as SocialShare from "nativescript-social-share";
 
 @Component({
     selector: "Home",
@@ -35,5 +36,14 @@ export class HomeComponent implements OnInit {
             if (this.data.length > 0) this.condition = true;
         }, (e) => {
         });
+    }
+
+    share(item) {
+        //console.log('share... ', item.url, item.name);
+        SocialShare.shareUrl(item.url, item.title);
+    }
+
+    save(item) {
+        
     }
 }
