@@ -6,17 +6,22 @@ import { HomeComponent } from "./home.component";
 
 import { HomeDetailComponent } from "./home-detail/home-detail.component";
 
-import { SafePipeModule } from 'safe-pipe';
+import { MainPipe } from '../../pipes/pipes.module';
+import { TimeAgoPipe } from 'time-ago-pipe';
+import { SafePipeModule } from "safe-pipe";
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
         HomeRoutingModule,
+        MainPipe,
         SafePipeModule
     ],
     declarations: [
         HomeComponent,
-        HomeDetailComponent
+        HomeDetailComponent,
+        TimeAgoPipe,
+        
     ],
     schemas: [
         NO_ERRORS_SCHEMA

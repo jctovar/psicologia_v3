@@ -14,7 +14,7 @@
                     <Label class="label-title" textWrap="true" textTransform="uppercase" [text]="item.title" [nsRouterLink]="['item', item.id]"></Label>
                 </StackLayout>
                 <StackLayout padding="10" row="2" col="0" horizontalAlignment="left">
-                    <Label class="h5 text-primary card-description" textAlignment="right" textWrap="true" [text]="item.date_published | date: 'mediumDate'"></Label>
+                    <Label class="h5 text-primary card-description" textAlignment="right" textWrap="true" [text]="item.date_published | timeAgo"></Label>
                 </StackLayout>
                 <StackLayout orientation="horizontal" row="2" col="1" horizontalAlignment="right">
                     <Button text="&#xf1e0;" class="far -simple -rounded-lg" (tap)="share(item)" width="60px"></Button>
