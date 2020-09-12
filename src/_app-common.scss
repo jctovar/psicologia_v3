@@ -47,11 +47,15 @@
     color: const(grey);
 }
 ///////////////////////////////////////////////////////////
+
+.nt-icon {
+    color: palevioletred;
+}
 // Psicologia
 .drawer_header {
     background-color: black;
     background-image: url("~/images/image_02.jpg");
-    min-height: 240px;
+    min-height: 340px;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -113,4 +117,8 @@
     font-weight: 400;
     font-style: italic;
     padding: 0, 10;
+}
+
+.image_post {
+    min-height: 340px;
 }

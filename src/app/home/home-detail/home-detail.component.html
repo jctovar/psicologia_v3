@@ -1,8 +1,20 @@
 <ActionBar>
-    <NavigationButton (tap)="onBackTap()" android.systemIcon="ic_menu_back"></NavigationButton>
+    <NavigationButton text="Atras" icon="font://&#xf053;" class="far icon-drawer" (tap)="onBackTap()"></NavigationButton>
     <Label [text]="item.title"></Label>
 </ActionBar>
 
-<GridLayout>
-    <WebView [src]="item.content_text"></WebView>
-</GridLayout>
+<ScrollView class="page__content">
+    <StackLayout orientation="vertical" horizontalAlignment="right">
+        <Image class="image_post" [src]="item.image"></Image>
+        <StackLayout orientation="horizontal" horizontalAlignment="right">
+            <Button text="&#xf08e;" class="far -simple -rounded-lg" (tap)="openBrowser(item.url)" width="60px"></Button>
+            <Button text="&#xf1e0;" class="far -simple -rounded-lg" (tap)="share(item)" width="60px"></Button>
+            <Button text="&#xf004;" class="far -simple -rounded-lg" (tap)="like(item)" width="60px"></Button>
+        </StackLayout>
+        <Label padding="10" class="text-primary card-description" textAlignment="left" textWrap="true" [text]="item.date_published | timeAgo"></Label>
+        <WebView padding="10" [src]="item.content_html"></WebView>
+        <Label padding="10" class="h5 text-primary card-description" textAlignment="right" textWrap="true" [text]="item.author.name"></Label>
+        
+    </StackLayout>
+    
+</ScrollView>

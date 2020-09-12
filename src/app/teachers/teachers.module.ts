@@ -6,10 +6,13 @@ import { TeachersComponent } from "./teachers.component";
 
 import { TeachersDetailComponent } from "./teachers-detail/teachers-detail.component";
 
+import { MainPipe } from '../../pipes/pipes.module';
+
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        TeachersRoutingModule
+        TeachersRoutingModule,
+        MainPipe
     ],
     declarations: [
         TeachersComponent,

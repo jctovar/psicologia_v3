@@ -3,6 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
 import { WebView } from "tns-core-modules/ui/web-view";
 import * as SocialShare from "nativescript-social-share";
+import * as utils from "tns-core-modules/utils/utils";
 
 //import { DataService, DataItem } from "../../shared/data.service";
 
@@ -46,12 +47,25 @@ export class HomeDetailComponent implements OnInit {
             // look for the entry with a matching `code` value
             if (this.json[i].id == url){
                // we found it
-               console.log(this.json[i].content_text);
+               //console.log(JSON.stringify(this.json[i].content_text) );
                this.item = this.json[i];
             }
         }
 
     }
 
+    openBrowser(url) {
+        console.log(url);
+        utils.openUrl(url)
+    }
+
+    share(item) {
+        //console.log('share... ', item.url, item.name);
+        SocialShare.shareUrl(item.url, item.title);
+    }
+
+    like(item) {
+        
+    }
     
 }

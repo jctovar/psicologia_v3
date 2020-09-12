@@ -28,3 +28,6 @@ npm run setVersion 0.7
 You must be using a styles.xml in App_resources/Android/src/main/res/values. This is this file you need to update. Replace all Theme.Appcompat with Theme.MaterialComponents
 ###
 https://market.nativescript.org/plugins/nativescript-material-activityindicator/
+
+##
+npm install md5
