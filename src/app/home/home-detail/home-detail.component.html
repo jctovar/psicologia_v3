@@ -1,5 +1,5 @@
 <ActionBar>
-    <NavigationButton text="Atras" icon="font://&#xf053;" class="far icon-drawer" (tap)="onBackTap()"></NavigationButton>
+    <NavigationButton text="Atras" icon="font://&#xf060;" class="far icon-drawer" (tap)="onBackTap()"></NavigationButton>
     <Label [text]="item.title"></Label>
 </ActionBar>
 
@@ -11,10 +11,11 @@
             <Button text="&#xf1e0;" class="far -simple -rounded-lg" (tap)="share(item)" width="60px"></Button>
             <Button text="&#xf004;" class="far -simple -rounded-lg" (tap)="like(item)" width="60px"></Button>
         </StackLayout>
+        <Label padding="10" class="label-title" textAlignment="left" textWrap="true" [text]="item.title"></Label>
         <Label padding="10" class="text-primary card-description" textAlignment="left" textWrap="true" [text]="item.date_published | timeAgo"></Label>
         <WebView padding="10" [src]="item.content_html"></WebView>
         <Label padding="10" class="h5 text-primary card-description" textAlignment="right" textWrap="true" [text]="item.author.name"></Label>
-        
+        <StackLayout class="hr m-10"></StackLayout>
+        <Label padding="10" class="h5 text-muted card-description" textAlignment="center" textWrap="true" text="- UNAM 2020 -"></Label>
     </StackLayout>
-    
 </ScrollView>

@@ -21,7 +21,7 @@ multiDexEnabled true (line 260 aprox)
 ###
 
 npm install nativescript-set-version --save-dev
-npm run setVersion 0.7
+setVersion 0.7
 
 
 ###
