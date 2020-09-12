@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
+import * as utils from "tns-core-modules/utils/utils";
 import about from "~/json/about.json";
 
 @Component({
@@ -22,5 +23,15 @@ export class AboutComponent implements OnInit {
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
+    }
+
+    openPhone(url) {
+        console.log('tel:' + url);
+        utils.openUrl('tel:' + url)
+    }
+
+    openEmail(url) {
+        console.log('mailto:' + url);
+        utils.openUrl('mailto:' + url)
     }
 }

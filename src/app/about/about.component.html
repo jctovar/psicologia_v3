@@ -2,7 +2,7 @@
     <!--  android -->
     <NavigationButton ios:visibility="collapsed" icon="font://&#xf0c9;" class="far icon-drawer" (tap)="onDrawerButtonTap()"></NavigationButton>
     <!--  ios -->
-    <ActionItem icon="font://&#xf0c9;" class="far icon-drawer" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left"></ActionItem>
+    <ActionItem icon="font://&#xf0c9;" class="far" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left"></ActionItem>
 </ActionBar>
 
 <ScrollView class="page__content">
@@ -15,7 +15,14 @@
                 <StackLayout orientation="vertical" row="2" col="0" horizontalAlignment="left" marginTop="40px">
                     <Label textWrap="true" [text]="data.info" class="label-info"></Label>
                     <Label textWrap="true" [text]="data.address" class="label-info"></Label>
-                    <Label textWrap="true" [text]="data.telephone" class="label-info"></Label>
+                    <StackLayout orientation="horizontal" horizontalAlignment="left" (tap)="openEmail(data.email)">
+                        <Label margin="6 0 0 10" text="&#xf0e0;" class="far"></Label>
+                        <Label textWrap="true" [text]="data.email" class="label-info" fontWeight="900"></Label>
+                    </StackLayout>
+                    <StackLayout orientation="horizontal" horizontalAlignment="left" (tap)="openPhone(data.telephone)">
+                        <Label margin="6 0 0 10" text="&#xf095;" class="far"></Label>
+                        <Label textWrap="true" [text]="data.telephone" class="label-info" fontWeight="900"></Label>
+                    </StackLayout>
                     <StackLayout class="hr m-10"></StackLayout>
                     <Label textWrap="true" [text]="data.copyright" class="label-copyright text-muted" textAlignment="center"></Label>
                 </StackLayout>

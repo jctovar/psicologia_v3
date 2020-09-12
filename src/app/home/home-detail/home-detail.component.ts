@@ -1,13 +1,16 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
 import { WebView } from "tns-core-modules/ui/web-view";
 import * as SocialShare from "nativescript-social-share";
 import * as utils from "tns-core-modules/utils/utils";
+import { layout } from "tns-core-modules/utils/utils";
+import { EventData } from "tns-core-modules/data/observable";
 
 //import { DataService, DataItem } from "../../shared/data.service";
 
 var cache = require("nativescript-cache");
+declare var android;
 
 @Component({
     selector: "HomeDetail",
@@ -20,9 +23,11 @@ export class HomeDetailComponent implements OnInit {
     json: any;
     condition: boolean = false;
 
+    height: number = 0; // initial height
+
     constructor(
        // private _data: DataService,
-        private _route: ActivatedRoute, private _routerExtensions: RouterExtensions
+        private _route: ActivatedRoute, private _routerExtensions: RouterExtensions, private changeDetectorRef: ChangeDetectorRef
     ) { }
 
     ngOnInit(): void {
@@ -66,6 +71,41 @@ export class HomeDetailComponent implements OnInit {
 
     like(item) {
         
+    }
+
+    onWebViewLoadFinished(event: EventData) {
+        const webView = <WebView>event.object,
+            jsStr = `var body = document.body;
+            var html = document.documentElement;
+            Math.max( body.scrollHeight, body.offsetHeight, 
+            html.clientHeight, html.scrollHeight, html.offsetHeight);`;
+    
+        if (webView.ios) {
+            webView.ios.scrollView.scrollEnabled = false;
+            webView.ios.evaluateJavaScriptCompletionHandler(jsStr,
+                (
+                    result,
+                    error
+                ) => {
+                    if (error) {
+                        console.log("error...");
+                    } else if (result) {
+                        this.height = layout.toDeviceIndependentPixels(result);
+                        this.changeDetectorRef.detectChanges();
+                    }
+                });
+        } else if (webView.android) {
+            // Works only on Android 19 and above
+            webView.android.evaluateJavascript(
+                jsStr,
+                new android.webkit.ValueCallback({
+                    onReceiveValue: (height) => {
+                        this.height = layout.toDeviceIndependentPixels(height);
+                        this.changeDetectorRef.detectChanges();
+                    }
+                })
+            );
+        }
     }
     
 }
