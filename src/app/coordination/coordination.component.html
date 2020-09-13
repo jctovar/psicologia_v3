@@ -5,7 +5,7 @@
     <ActionItem icon="font://&#xf0c9;" class="far" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left"></ActionItem>
 </ActionBar>
 
-<ScrollView class="page__content">
+<StackLayout class="page__content">
     <ListView [items]="items">
         <ng-template let-item="item">
             <GridLayout columns="60, *, 50" rows="*, *, auto">
@@ -17,4 +17,4 @@
             </GridLayout>
         </ng-template>
     </ListView>
-</ScrollView>
+</StackLayout>

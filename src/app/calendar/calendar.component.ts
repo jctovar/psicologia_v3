@@ -17,7 +17,6 @@ export class CalendarComponent implements OnInit {
 
     ngOnInit(): void {
         // Init your component properties here.
-        console.log()
         this.loadDataBase()
     }
 
@@ -30,6 +29,7 @@ export class CalendarComponent implements OnInit {
         //this.snackBarSimple("Cargando datos...");
         this.firestoreService.GetDataCalendar().then(result => {
             this.items = result;
+            console.log(this.items);
             if (this.items.length > 0) this.condition = true;
         });
     }

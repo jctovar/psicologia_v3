@@ -5,8 +5,12 @@
     <ActionItem icon="font://&#xf0c9;" class="far" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left"></ActionItem>
 </ActionBar>
 
-<ScrollView class="page__content">
-    <ListView [items]="items">
+<StackLayout class="page__content">
+    <SearchBar hint="Nombre del profesor ..."
+            [text]="searchPhrase" (textChange)="onTextChanged($event)" 
+            (clear)="onClear($event)" (submit)="onSubmit($event)">
+    </SearchBar>
+    <ListView [items]="items" height="100%">
         <ng-template let-item="item">
             <GridLayout columns="60, *, 50" rows="*, auto">
                 <Image class="img-circle"  [src]="item.email | gravatar" horizontalAlignment="center" width="50" height="50" row="0" col="0" rowspan="2"></Image>
@@ -16,4 +20,4 @@
             </GridLayout>
         </ng-template>
     </ListView>
-</ScrollView>
+</StackLayout>

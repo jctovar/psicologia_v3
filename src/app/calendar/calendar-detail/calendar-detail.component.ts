@@ -10,6 +10,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 })
 export class CoordinationDetailComponent implements OnInit {
     //item: DataItem;
+    item = [];
 
     constructor(
        // private _data: DataService,
