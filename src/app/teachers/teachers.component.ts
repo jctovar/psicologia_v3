@@ -10,13 +10,10 @@ import { SearchBar } from "tns-core-modules/ui/search-bar";
 })
 export class TeachersComponent implements OnInit {
     items = [];
-    json = [];
     searchPhrase: string = "";
 
     constructor() {
         // Use the component constructor to inject providers.
-        //this.items = db.teachers;
-        this.json = db.teachers;
         this.items = this.filterItems(this.searchPhrase);
     }
 
@@ -47,7 +44,9 @@ export class TeachersComponent implements OnInit {
 
     // Function for filter names
     filterItems(searchTerm: string){
-        return this.json.filter((item) => {
+        const json = db.teachers;
+        
+        return json.filter((item) => {
             return item.name.toLowerCase().indexOf(
               searchTerm.toLowerCase()) > -1;
         });
