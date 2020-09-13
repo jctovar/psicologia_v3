@@ -5,7 +5,9 @@
       "name": "Dra. Anabel de la Rosa Gómez",
       "email": "coordinacion@iztacala.unam.mx",
       "phone": "55·5623·1344",
-      "image": "~/images/avatars/anabel.jpg"
+      "image": "~/images/avatars/anabel.jpg",
+      "bg": "~/images/coordination/bg_01.png",
+      "description": "<ul><li>Representar a la licenciatura de Psicología en línea ante la CUAIEED</li><li>Velar por la aplicacion del plan de estudios</li><li>Medir los resultados obtenidos para el egreso y continuidad del alumnado</li></ul>"
     },
     {
       "id": "2",
@@ -13,7 +15,9 @@
       "name": "Mtra. Karen Belén Espinoza Rosal",
       "email": "desarrolloacademico@iztacala.unam.mx",
       "phone": "55·5623·1301",
-      "image": "~/images/avatars/karen.jpg"
+      "image": "~/images/avatars/karen.jpg",
+      "bg": "~/images/coordination/bg_02.png",
+      "description": "<ul><li>Apoyar en la organización y difusión de eventos académicos de carácter extracurricular como cursos, coloquios, congresos, foros, conferencias, entre otros</li><li>Atención de alumnos por abandono, falta de retroalimentación y calificación de profesores en las aulas.</li></ul>"
     },
     {
       "id": "3",
@@ -21,7 +25,9 @@
       "name": "Ing. Juan Carlos Tovar Gómez",
       "email": "desarrollotecnologico@iztacala.unam.mx",
       "phone": "55·5623·1300",
-      "image": "~/images/avatars/jctovar.jpg"
+      "image": "~/images/avatars/jctovar.jpg",
+      "bg": "~/images/coordination/bg_04.png",
+      "description": "<ul><li>Mantener disponible y actualizadas las plataformas de aulas virtuales y su sistema operativo, monitoreo constante de la plataforma y su rendimiento</li></ul>"
     },
     {
       "id": "4",
@@ -29,7 +35,9 @@
       "name": "Mtra. Silvia Toledo de León",
       "email": "asuntosestudiantiles@iztacala.unam.mx",
       "phone": "55·5623·1119",
-      "image": "~/images/avatars/silvia.jpg"
+      "image": "~/images/avatars/silvia.jpg",
+      "bg": "~/images/coordination/bg_05.png",
+      "description": "<ul><li>Proporcionar informes sobre reinscripciones y tramites escolares, como reposiciones de documentos y becas</li><li>Apoyar al ingreso de las plataformas SICE Y SIAE</li><li>Informar sobre las bajas y extraordinarios</li><li>Apoyar a los tramites de titulación</li></ul>"
     },
     {
       "id": "5",
@@ -37,6 +45,8 @@
       "name": "Mtra. Alejandra Pamela Saldaña Badillo",
       "email": "proyectoseducativos@iztacala.unam.mx",
       "phone": "55·5623·1344",
-      "image": "~/images/avatars/pamela.jpg"
+      "image": "~/images/avatars/pamela.jpg",
+      "bg": "~/images/coordination/bg_06.png",
+      "description": "<ul><li>Cursos de actualización en TIC para profesores y estudiantes</li><li>Creación de recursos educativos digitales</li><li>Coordinación y Producción del Boletín SUAyED Psicología</li><li>Responsable de los curso de inducción y el programa de tutorías</li></ul>"
     }
   ]
