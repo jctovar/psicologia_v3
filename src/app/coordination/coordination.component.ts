@@ -4,10 +4,10 @@ import * as app from "tns-core-modules/application";
 import coordination from "~/json/coordination.json";
 
 @Component({
-    selector: "Featured",
+    selector: "Coordination",
     templateUrl: "./coordination.component.html"
 })
-export class FeaturedComponent implements OnInit {
+export class CoordinationComponent implements OnInit {
     items: any;
 
     constructor() {
@@ -22,9 +22,5 @@ export class FeaturedComponent implements OnInit {
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
-    }
-
-    showItem(item) {
-        console.log(item);
     }
 }

@@ -3,9 +3,21 @@
     <NavigationButton ios:visibility="collapsed" icon="font://&#xf060;" class="far icon-drawer" (tap)="onBackTap()"></NavigationButton>
     <!--  ios -->
     <ActionItem icon="font://&#xf053;" class="far" android:visibility="collapsed" (tap)="onBackTap()" ios.position="left"></ActionItem>
-    <Label [text]="item.title"></Label>
+    <Label textTransform="capitalize" [text]="item.name"></Label>
 </ActionBar>
 
-<GridLayout>
-    
-</GridLayout>
+<ScrollView class="page__content">
+    <StackLayout>
+        <GridLayout>
+            <Image class="image_post" src="~/images/coordination/bg_03.png" row="0" col="0"></Image>
+            <Image class="logo" [src]="item.picture" horizontalAlignment="center" row="0" col="0"></Image>
+        </GridLayout>
+        <StackLayout orientation="vertical" horizontalAlignment="left" padding="10">
+            <Label class="h2" verticalAlignment="top" [text]="item.name" textWrap="true" textAlignment="left"></Label>
+            <Label class="h3" verticalAlignment="top" [text]="item.grade" textWrap="true" textAlignment="left"></Label>
+            <Label class="" verticalAlignment="top" [text]="item.email" textWrap="true" textAlignment="left"></Label>
+            <Label class="" verticalAlignment="top" [text]="item.phone" textWrap="true" textAlignment="left"></Label>
+            <HtmlView [html]="item.cv"></HtmlView>
+        </StackLayout>
+    </StackLayout>
+</ScrollView>

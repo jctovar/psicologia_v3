@@ -7,16 +7,17 @@
 </ActionBar>
 
 <ScrollView class="page__content">
-    <StackLayout orientation="vertical" horizontalAlignment="left">
+    <StackLayout>
         <GridLayout>
             <Image class="image_post" [src]="item.bg" row="0" col="0"></Image>
             <Image class="logo" [src]="item.image" horizontalAlignment="center" row="0" col="0"></Image>
         </GridLayout>
-        
-        <Label class="h2" verticalAlignment="top" [text]="item.name" textWrap="true" textAlignment="left"></Label>
-        <Label class="h3" verticalAlignment="top" [text]="item.title" textWrap="true" textAlignment="left"></Label>
-        <Label class="" verticalAlignment="top" [text]="item.email" textWrap="true" textAlignment="left"></Label>
-        <Label class="" verticalAlignment="top" [text]="item.phone" textWrap="true" textAlignment="left"></Label>
-        <HtmlView [html]="item.description"></HtmlView>
+        <StackLayout orientation="vertical" horizontalAlignment="left" padding="10">
+            <Label class="h2" verticalAlignment="top" [text]="item.name" textWrap="true" textAlignment="left"></Label>
+            <Label class="h3" verticalAlignment="top" [text]="item.title" textWrap="true" textAlignment="left"></Label>
+            <Label class="" verticalAlignment="top" [text]="item.email" textWrap="true" textAlignment="left"></Label>
+            <Label class="" verticalAlignment="top" [text]="item.phone" textWrap="true" textAlignment="left"></Label>
+            <HtmlView [html]="item.description"></HtmlView>
+        </StackLayout>
     </StackLayout>
 </ScrollView>

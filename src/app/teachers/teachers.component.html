@@ -1,4 +1,4 @@
-<ActionBar title="Profesores">
+<ActionBar title="Catalogo de profesores">
     <!--  android -->
     <NavigationButton ios:visibility="collapsed" icon="font://&#xf0c9;" class="far icon-drawer" (tap)="onDrawerButtonTap()"></NavigationButton>
     <!--  ios -->
@@ -10,9 +10,9 @@
         <ng-template let-item="item">
             <GridLayout columns="60, *, 50" rows="*, auto">
                 <Image class="img-circle"  [src]="item.email | gravatar" horizontalAlignment="center" width="50" height="50" row="0" col="0" rowspan="2"></Image>
-                <Label class="item_name" [nsRouterLink]="['item', item.id]" [text]="item.name" row="0" col="1"></Label>
+                <Label class="item_name" [nsRouterLink]="['item', item.id]" textTransform="capitalize" [text]="item.name" row="0" col="1"></Label>
                 <Label class="item_email" [nsRouterLink]="['item', item.id]" [text]="item.email" row="2" col="1"></Label>
-                <Button text="&#xf105;" class="far -simple -rounded-lg" (tap)="showItem(item)" width="50px" row="0" col="2" rowspan="2" horizontalAlignment="right"></Button>
+                <Button text="&#xf105;" class="far -simple -rounded-lg" [nsRouterLink]="['item', item.id]" width="50px" hight="50px" row="0" col="2" rowspan="2" horizontalAlignment="right"></Button>
             </GridLayout>
         </ng-template>
     </ListView>
