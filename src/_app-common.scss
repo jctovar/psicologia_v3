@@ -52,7 +52,7 @@
     color: palevioletred;
 }
 // Psicologia
-.drawer_header {
+.drawer-header {
     background-color: black;
     background-image: url("~/images/image_02.jpg");
     min-height: 340px;
@@ -65,15 +65,15 @@
 }
 
 .logo {
-    height: 160px;
-    width: 160px;
+    height: 180px;
+    width: 180px;
     background-color: white;
     border-radius: 50%;
     border-color: white;
     border-width: 5px;
 }
 
-.image_bg {
+.image-bg {
     background-color: black;
     background-image: url("~/images/image_01.jpg");
     height: 320px;
@@ -106,26 +106,35 @@
     font-weight: 600;
 }
 
-.item_name {
+.item-name {
     font-size: 14px;
     font-weight: 600;
     color: skyblue;
     padding: 0, 10;
 }
 
-.item_title {
+.item-title {
     font-size: 12px;
     font-weight: 600;
     padding: 0, 10;
 }
 
-.item_email {
+.item-email {
     font-size: 12px;
     font-weight: 400;
     font-style: italic;
     padding: 0, 10;
 }
 
-.image_post {
+.image-post {
     min-height: 340px;
+}
+
+.item-day {
+    font-style: italic;
+    font-weight: 900;
+    background-color: darkcyan;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
 }

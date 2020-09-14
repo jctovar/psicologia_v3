@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
 import coordination from "~/json/coordination.json";
+import { openUrl } from "tns-core-modules/utils/utils";
 
 //import { DataService, DataItem } from "../../shared/data.service";
 
@@ -28,6 +29,11 @@ export class CoordinationDetailComponent implements OnInit {
 
     onBackTap(): void {
         this._routerExtensions.back();
+    }
+
+    openEmail(url) {
+        console.log('mailto:' + url);
+        openUrl('mailto:' + url)
     }
 
     getItem(id): void {
