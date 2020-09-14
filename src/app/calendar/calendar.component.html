@@ -10,13 +10,13 @@
         <ng-template let-item="item">
             <GridLayout columns="60, *, 50" rows="*, auto">
                 <Label class="item-day" [text]="item.startdate | date : 'd'" horizontalAlignment="center" width="50" height="50" row="0" col="0" rowspan="2"></Label>
-                <Label class="item-name" [nsRouterLink]="['item', item.id]" [text]="item.name" row="0" col="1"></Label>
+                <Label class="item-name" [text]="item.name" row="0" col="1"></Label>
                 <StackLayout orientation="horizontal" row="2" col="1">
-                    <Label class="item-email" textAlignment="left" [nsRouterLink]="['item', item.id]" [text]="item.startdate | date : 'd LLL, yyy'"></Label>
-                    <Label class="item-email" textAlignment="left" [nsRouterLink]="['item', item.id]" text="/"></Label>
-                    <Label class="item-email" textAlignment="left" [nsRouterLink]="['item', item.id]" [text]="item.enddate | date : 'd LLL, yyy'"></Label>
+                    <Label class="item-email" textAlignment="left" [text]="item.startdate | date : 'd LLL, yyy'"></Label>
+                    <Label class="item-email" textAlignment="left" text="/"></Label>
+                    <Label class="item-email" textAlignment="left" [text]="item.enddate | date : 'd LLL, yyy'"></Label>
                 </StackLayout>
-                <Button text="&#xf105;" class="far -simple -rounded-lg" (tap)="onTap(item)" width="50px" hight="50px" row="0" col="2" rowspan="2" horizontalAlignment="right"></Button>
+                <Button text="&#xf271;" class="far -simple -rounded-lg" (tap)="onTap(item)" width="50px" hight="50px" row="0" col="2" rowspan="2" horizontalAlignment="right"></Button>
             </GridLayout>
         </ng-template>
     </ListView>
