@@ -3,6 +3,8 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { FirestoreService } from "../shared/firestore.service";
 import * as Calendar from "nativescript-calendar";
+import { confirm, ConfirmOptions } from "tns-core-modules/ui/dialogs";
+import { alert, prompt } from "tns-core-modules/ui/dialogs";
 
 @Component({
     selector: "Calendar",
@@ -36,10 +38,7 @@ export class CalendarComponent implements OnInit {
     }
 
     onTap(item) {
-        this.addEventCalendar(item)
-        console.log(new Date(item.startdate).getTime());
-        console.log(new Date(item.enddate).getTime());
-        console.log(new Date().getTime() + (60*60*1000));
+        this.showConfirmDialog(item);
     }
 
     addEventCalendar(item) {
@@ -53,22 +52,50 @@ export class CalendarComponent implements OnInit {
             // In this case we schedule an Event for now + 1 hour, lasting 1 hour.
             startDate: new Date(startDate),
             endDate: new Date(endDate),
+            notes: item.description,
             calendar: {
                 name: "Psicología en línea",
                 // the color, in this case red
                 color: "#42a5f5",
                 // Can be used on Android to group the calendars. Examples: Your app name, or an emailaddress
                 accountName: "Psicología en línea"
-              }
+            },
+            reminders: {
+                first: 30,
+                second: 10
+            }
         };
 
-        Calendar.createEvent(options).then(
-            function(createdId) {
-                console.log("Created Event with ID: " + createdId);
+        Calendar.createEvent(options)
+            .then((createdId) => {
+                this.alert("Se creo el evento satisfactoriamente en calendario");
             },
-            function(error) {
-                console.log("Error creating an Event: " + error);
-            }
+            (error) =>{
+                this.alert("Ocurrio un error: " + error);           }
         );
+    }
+
+    showConfirmDialog(item) {
+        const confirmOptions: ConfirmOptions = {
+            title: "Añadir evento al calendario",
+            message: "Desea añadir el evento '" + item.name + "' a su calendario?",
+            okButtonText: "Si",
+            cancelButtonText: "No"
+        };
+        confirm(confirmOptions)
+            .then((result) => {
+                if(result == true) {
+                    console.log("voy a añadir el evento....");
+                    this.addEventCalendar(item)
+                }
+        });
+    }
+
+    alert(message: string) {
+        return alert({
+            title: "Psicología en línea",
+            okButtonText: "Aceptar",
+            message: message
+        });
     }
 }
