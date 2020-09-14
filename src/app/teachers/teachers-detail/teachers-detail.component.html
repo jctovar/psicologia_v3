@@ -10,14 +10,19 @@
     <StackLayout>
         <GridLayout>
             <Image class="image_post" src="~/images/coordination/bg_03.png" row="0" col="0"></Image>
-            <Image class="logo" [src]="item.picture" horizontalAlignment="center" row="0" col="0"></Image>
+            <Image class="logo" [src]="item.email | gravatar" horizontalAlignment="center" row="0" col="0"></Image>
         </GridLayout>
+        <StackLayout orientation="horizontal" horizontalAlignment="right">
+            <Button text="&#xf0e0;" class="far -simple -rounded-lg" (tap)="openEmail(item.email)" width="60px"></Button>
+        </StackLayout>
         <StackLayout orientation="vertical" horizontalAlignment="left" padding="10">
-            <Label class="h2" verticalAlignment="top" [text]="item.name" textWrap="true" textAlignment="left"></Label>
-            <Label class="h3" verticalAlignment="top" [text]="item.grade" textWrap="true" textAlignment="left"></Label>
-            <Label class="" verticalAlignment="top" [text]="item.email" textWrap="true" textAlignment="left"></Label>
-            <Label class="" verticalAlignment="top" [text]="item.phone" textWrap="true" textAlignment="left"></Label>
+            <Label class="label-email text-muted" [text]="item.email" textWrap="true" textAlignment="left"></Label>
+            <Label class="label-title" verticalAlignment="top" [text]="item.name" textTransform="capitalize" textWrap="true" textAlignment="left"></Label>
+            <Label class="label-words" [text]="item.fields" textWrap="true" textAlignment="left"></Label>
+            <StackLayout class="hr m-10"></StackLayout>
             <HtmlView [html]="item.cv"></HtmlView>
+            <StackLayout class="hr m-10"></StackLayout>
+            <Label padding="10" class="h5 text-muted card-description" textAlignment="center" textWrap="true" text="- UNAM 2020 -"></Label>
         </StackLayout>
     </StackLayout>
 </ScrollView>
