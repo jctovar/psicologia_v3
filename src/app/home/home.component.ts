@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
                 this.condition = true;
                 cache.set("wordpress", JSON.stringify(result.items));
                 this.data = JSON.parse(cache.get("wordpress"));
-                console.log("from the cache... " + cache.get("wordpress"));
+                //console.log("from the cache... " + cache.get("wordpress"));
             } 
         }, (e) => {
             console.log("ocurrio un error: " + e);

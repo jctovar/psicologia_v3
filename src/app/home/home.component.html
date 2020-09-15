@@ -9,7 +9,7 @@
     <StackLayout *ngIf="condition">
         <MDCardView *ngFor="let item of data" ripple="true" margin="10">
             <GridLayout columns="*, *" rows="1*, *, auto" padding="0">
-                <NSImage height="220" stretch="aspectFill" radius="5 5 0 0" [src]="item.image" [nsRouterLink]="['item', item.id]" row="0" col="0" colSpan="2" placeholder="~/images/placeholder.png"></NSImage>
+                <NSImage height="220" stretch="aspectFill" radius="5 5 0 0" [src]="item.image" [nsRouterLink]="['item', item.id]" row="0" col="0" colSpan="2" placeholder="res://placeholder"></NSImage>
                 <StackLayout padding="5 10 0 10" row="1" col="0" colSpan="2">
                     <Label class="label-title" textWrap="true" textTransform="uppercase" [text]="item.title" [nsRouterLink]="['item', item.id]"></Label>
                 </StackLayout>
