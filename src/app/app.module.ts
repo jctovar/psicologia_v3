@@ -10,7 +10,6 @@ import { NativeScriptMaterialActivityIndicatorModule } from "nativescript-materi
 
 import { FirestoreService } from "./shared/firestore.service"
 
-
 @NgModule({
     bootstrap: [
         AppComponent

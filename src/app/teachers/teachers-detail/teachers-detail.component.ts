@@ -3,6 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
 import db from "~/json/teachers.json";
 import { openUrl } from "tns-core-modules/utils/utils";
+import * as utils from "tns-core-modules/utils/utils";
 
 //import { DataService, DataItem } from "../../shared/data.service";
 
@@ -24,6 +25,7 @@ export class TeachersDetailComponent implements OnInit {
         const id = +this._route.snapshot.params.id;
         console.log(id);
         this.getItem(id);
+        utils.ad.dismissSoftInput();
         //this.item = this._data.getItem(id);
     }
 

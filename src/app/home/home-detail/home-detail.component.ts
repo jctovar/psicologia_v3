@@ -7,6 +7,9 @@ import * as utils from "tns-core-modules/utils/utils";
 import { layout } from "tns-core-modules/utils/utils";
 import { EventData } from "tns-core-modules/data/observable";
 
+import { initializeOnAngular } from 'nativescript-image-cache';
+
+
 //import { DataService, DataItem } from "../../shared/data.service";
 
 var cache = require("nativescript-cache");
@@ -28,7 +31,9 @@ export class HomeDetailComponent implements OnInit {
     constructor(
        // private _data: DataService,
         private _route: ActivatedRoute, private _routerExtensions: RouterExtensions, private changeDetectorRef: ChangeDetectorRef
-    ) { }
+    ) { 
+        initializeOnAngular();
+    }
 
     ngOnInit(): void {
         //console.log(this._route.snapshot.params);
