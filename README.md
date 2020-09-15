@@ -31,3 +31,12 @@ https://market.nativescript.org/plugins/nativescript-material-activityindicator/
 
 ##
 npm install md5
+
+###
+review https://market.nativescript.org/plugins/nativescript-image-cache/
+
+TODO
+locale for date
+save marks
+push notifications
+
