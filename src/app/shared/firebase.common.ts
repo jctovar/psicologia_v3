@@ -1,4 +1,5 @@
 import * as firebase from "nativescript-plugin-firebase";
+import { Message } from "nativescript-plugin-firebase";
 //import { Config } from "./config";
 
 /* ***********************************************************
@@ -14,15 +15,25 @@ import * as firebase from "nativescript-plugin-firebase";
 
 export function initFirebase() {
   firebase.init({
-      onAuthStateChanged: function(data) { // optional but useful to immediately re-logon the user when they re-visit your app
-          console.log(data.loggedIn ? "Logged in to firebase" : "Logged out from firebase");
-          if (data.loggedIn) {
-            console.log("user's email address: " + (data.user.email ? data.user.email : "N/A"));
-          }
-        },
+    showNotifications: true,
+    showNotificationsWhenInForeground: true,
+    onAuthStateChanged: function(data) { // optional but useful to immediately re-logon the user when they re-visit your app
+        console.log(data.loggedIn ? "Logged in to firebase" : "Logged out from firebase");
+        if (data.loggedIn) {
+          console.log("user's email address: " + (data.user.email ? data.user.email : "N/A"));
+        }
+    },
+    onMessageReceivedCallback: (message: Message) => {
+      console.log(`all... : ` + JSON.stringify(message));
+      console.log(`Title: ${message.title}`);
+      console.log(`Body: ${message.body}`);
+      // if your server passed a custom property called 'foo', then do this:
+      console.log(`Value of 'foo': ${message.data.foo}`);
+    },
       //persist: false,
       //storageBucket: Config.firebaseBucket
-      storageBucket: 'gs://liverpool-colibri.appspot.com'
+      //storageBucket: 'gs://liverpool-colibri.appspot.com'
   }).then((instance) => console.log("firebase.init done"),
       (error) => console.log("firebase.init error: " + error));
+    firebase.subscribeToTopic("news").then(() => console.log("Subscribed to topic"));     
 }

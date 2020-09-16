@@ -7,21 +7,23 @@
 
 <ScrollView class="page__content">
     <StackLayout *ngIf="condition">
-        <MDCardView *ngFor="let item of data" ripple="true" margin="10">
-            <GridLayout columns="*, *" rows="1*, *, auto" padding="0">
-                <NSImage height="220" stretch="aspectFill" radius="5 5 0 0" [src]="item.image" [nsRouterLink]="['item', item.id]" row="0" col="0" colSpan="2" placeholder="res://placeholder"></NSImage>
-                <StackLayout padding="5 10 0 10" row="1" col="0" colSpan="2">
-                    <Label class="label-title" textWrap="true" textTransform="uppercase" [text]="item.title" [nsRouterLink]="['item', item.id]"></Label>
-                </StackLayout>
-                <StackLayout padding="10" row="2" col="0" horizontalAlignment="left">
-                    <Label class="h5 text-primary card-description" textAlignment="right" textWrap="true" [text]="item.date_published | timeAgo"></Label>
-                </StackLayout>
-                <StackLayout orientation="horizontal" row="2" col="1" horizontalAlignment="right">
-                    <Button text="&#xf1e0;" class="far -simple -rounded-lg" (tap)="share(item)" width="60px"></Button>
-                    <Button text="&#xf004;" class="far -simple -rounded-lg" (tap)="save(item)" width="60px"></Button>
-                </StackLayout>
-            </GridLayout>
-        </MDCardView>
+        <PullToRefresh (refresh)="refreshList($event)" indicatorFillColor="#fff000" indicatorColor="#3489db">
+            <MDCardView *ngFor="let item of data" ripple="true" margin="10">
+                <GridLayout columns="*, *" rows="1*, *, auto" padding="0">
+                    <NSImage height="220" stretch="aspectFill" radius="5 5 0 0" [src]="item.image" [nsRouterLink]="['item', item.id]" row="0" col="0" colSpan="2" placeholder="res://placeholder"></NSImage>
+                    <StackLayout padding="5 10 0 10" row="1" col="0" colSpan="2">
+                        <Label class="label-title" textWrap="true" textTransform="uppercase" [text]="item.title" [nsRouterLink]="['item', item.id]"></Label>
+                    </StackLayout>
+                    <StackLayout padding="10" row="2" col="0" horizontalAlignment="left">
+                        <Label class="h5 text-primary card-description" textAlignment="right" textWrap="true" [text]="item.date_published | timeAgo"></Label>
+                    </StackLayout>
+                    <StackLayout orientation="horizontal" row="2" col="1" horizontalAlignment="right">
+                        <Button text="&#xf1e0;" class="far -simple -rounded-lg" (tap)="share(item)" width="60px"></Button>
+                        <Button text="&#xf004;" class="far -simple -rounded-lg" (tap)="save(item)" width="60px"></Button>
+                    </StackLayout>
+                </GridLayout>
+            </MDCardView>
+        </PullToRefresh>
     </StackLayout>
     <StackLayout *ngIf="!condition" orientation="vertical" width="210" height="210">
         <GridLayout columns="*" rows="*" padding="0">

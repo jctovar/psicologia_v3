@@ -1,0 +1,6 @@
+curl \
+  --request POST \
+  --header "Authorization: key=AAAA4OdC2CE:APA91bFxZGb2I8-Juu5DCcg_erPpSPv9NGiQ9UeGQluE5IaAR24j2jo3IBUd15nTvaVS0xf9sm0TB_v-DCDffKspyEbClUJzxOlSj_paQfP6HIp6yyLIFEL4rciMOPaStZwuxRtd-7u2" \
+  --header "Content-Type: application/json" \
+  --data "{\"notification\":{\"title\": \"My title\", \"text\": \"My text\", \"sound\": \"default\"}, \"priority\": \"High\", \"to\": \"DEVICE_TOKEN\"}" \
+  https://fcm.googleapis.com/fcm/send

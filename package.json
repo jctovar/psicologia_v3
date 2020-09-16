@@ -24,7 +24,9 @@
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
     "@nativescript/theme": "~2.3.0",
+    "@nstudio/nativescript-pulltorefresh": "^3.0.0",
     "@nstudio/nativescript-snackbar": "^1.1.2",
+    "@owen-it/nativescript-uuid": "0.0.4",
     "md5": "^2.3.0",
     "nativescript-angular": "~8.21.0",
     "nativescript-cache": "^1.0.0",
@@ -38,7 +40,6 @@
     "nativescript-ui-sidedrawer": "~8.0.0",
     "reflect-metadata": "~0.1.12",
     "rxjs": "^6.4.0",
-    "safe-pipe": "^1.0.3",
     "time-ago-pipe": "^1.3.2",
     "tns-core-modules": "~6.5.0",
     "zone.js": "~0.9.1"

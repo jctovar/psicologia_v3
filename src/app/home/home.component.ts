@@ -4,10 +4,14 @@ import * as app from "tns-core-modules/application";
 import { getJSON } from "tns-core-modules/http";
 import * as SocialShare from "nativescript-social-share";
 import { SnackBar, SnackBarOptions } from "@nstudio/nativescript-snackbar";
+import { PullToRefresh } from '@nstudio/nativescript-pulltorefresh';
 
 import { initializeOnAngular } from 'nativescript-image-cache';
 
 var cache = require("nativescript-cache");
+
+
+import { getUUID } from '@owen-it/nativescript-uuid';
 
 @Component({
     selector: "Home",
@@ -24,6 +28,9 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.loadRSS()
+
+        const uuid = getUUID();
+        console.log(`The device UUID is ${uuid}`);
     }
 
     onDrawerButtonTap(): void {
@@ -60,4 +67,12 @@ export class HomeComponent implements OnInit {
         
         snackbar.simple(message, '#ffffff', '#4f5154', 3, false);
     }
+
+    refreshList(args) {
+        const pullRefresh = args.object as PullToRefresh;
+        
+        setTimeout(function () {
+           pullRefresh.refreshing = false;
+        }, 1000);
+   }
 }
