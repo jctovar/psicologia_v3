@@ -17,8 +17,8 @@
         </StackLayout>
         <Label padding="10" class="label-title" textTransform="uppercase" textAlignment="left" textWrap="true" [text]="item.title"></Label>
         <Label padding="10" class="h5 text-primary card-description" textAlignment="left" textWrap="true" [text]="item.date_published | timeAgo"></Label>
-        <GridLayout rows="*" columns="*">
-            <WebView row="0" col="0" [src]="item.content_html" [height]="height" (loadFinished)="onWebViewLoadFinished($event)"></WebView>
+        <GridLayout rows="*" columns="*" padding="10">
+            <HtmlView row="0" col="0" [height]="height" [html]="item.content_html"></HtmlView>
         </GridLayout>
         <Label padding="10" class="h5 text-primary card-description" textAlignment="right" textWrap="true" [text]="item.author.name"></Label>
         <StackLayout class="hr m-10"></StackLayout>

@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { firestore } from "nativescript-plugin-firebase";
 
+var cache = require("nativescript-cache");
+
 @Injectable()
 export class FirestoreService {
+    uid = cache.get("uid");
 
     constructor() { }
 
@@ -18,6 +21,21 @@ export class FirestoreService {
             return items;
         });
         
+    }
+
+    public SaveLike() {
+        
+        const usersCollection = firestore.collection("usuarios").doc(this.uid).collection("marcadores");
+
+        usersCollection.add({
+            name: "San Francisco",
+            state: "CA",
+            country: "USA",
+            capital: false,
+            population: 860000,
+          }).then(documentRef => {
+            console.log(`Test ID: ${documentRef.id}`);
+          });
     }
 
 }

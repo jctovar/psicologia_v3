@@ -2,6 +2,8 @@ import * as firebase from "nativescript-plugin-firebase";
 import { Message } from "nativescript-plugin-firebase";
 //import { Config } from "./config";
 
+var cache = require("nativescript-cache");
+
 /* ***********************************************************
 * The {N} Firebase plugin initialization is explained in the plugin readme here:
 * https://github.com/EddyVerbruggen/nativescript-plugin-firebase#usage
@@ -28,12 +30,29 @@ export function initFirebase() {
       console.log(`Title: ${message.title}`);
       console.log(`Body: ${message.body}`);
       // if your server passed a custom property called 'foo', then do this:
-      console.log(`Value of 'foo': ${message.data.foo}`);
+      console.log(`Value of 'url': ${message.data.url}`);
+      //if(message.data.url) {
+        //this.RouterExtensions.navigate(["/home"]);
+      //}
+    },
+    onPushTokenReceivedCallback: function(token) {
+      console.log("Firebase push token: " + token);
     },
       //persist: false,
       //storageBucket: Config.firebaseBucket
       //storageBucket: 'gs://liverpool-colibri.appspot.com'
   }).then((instance) => console.log("firebase.init done"),
       (error) => console.log("firebase.init error: " + error));
-    firebase.subscribeToTopic("news").then(() => console.log("Subscribed to topic"));     
+  
+  firebase.subscribeToTopic("news").then(() => console.log("Subscribed to topic"));     
+
+  firebase.login({
+    type: firebase.LoginType.ANONYMOUS
+  }).then(user => {
+      console.log("User uid: " + user.uid)
+      cache.set("uid", user.uid);
+    })
+    .catch(error => 
+      {console.log("Trouble in paradise: " + error)
+    });
 }

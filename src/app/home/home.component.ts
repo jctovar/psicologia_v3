@@ -5,13 +5,13 @@ import { getJSON } from "tns-core-modules/http";
 import * as SocialShare from "nativescript-social-share";
 import { SnackBar, SnackBarOptions } from "@nstudio/nativescript-snackbar";
 import { PullToRefresh } from '@nstudio/nativescript-pulltorefresh';
+import { FirestoreService } from "../shared/firestore.service";
 
 import { initializeOnAngular } from 'nativescript-image-cache';
 
 var cache = require("nativescript-cache");
 
-
-import { getUUID } from '@owen-it/nativescript-uuid';
+//import { getUUID } from '@owen-it/nativescript-uuid';
 
 @Component({
     selector: "Home",
@@ -21,16 +21,15 @@ export class HomeComponent implements OnInit {
     data = [];
     condition: boolean = false;
 
-    constructor() {
+    constructor(private firestoreService: FirestoreService) {
         // Use the component constructor to inject providers.
         initializeOnAngular();
+        // this.auth.anonymous();
     }
 
     ngOnInit(): void {
         this.loadRSS()
-
-        const uuid = getUUID();
-        console.log(`The device UUID is ${uuid}`);
+        
     }
 
     onDrawerButtonTap(): void {
@@ -59,7 +58,8 @@ export class HomeComponent implements OnInit {
     }
 
     save(item) {
-
+        console.log(cache.get("uid"))
+        this.firestoreService.SaveLike();
     }
 
     snackBarSimple(message) {
