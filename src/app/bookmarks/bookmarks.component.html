@@ -10,7 +10,7 @@
         <ng-template let-item="item">
             <GridLayout columns="110, *, 30" rows="*, auto">
                 <NSImage class="img-rounded" stretch="aspectFill" [src]="item.item.image" horizontalAlignment="center" width="100" height="100" row="0" col="0" rowspan="2"></NSImage>
-                <Label class="t-14" textWrap="true" textTransform="uppercase" [text]="item.item.title  | truncate:[82, '...']" row="0" col="1"></Label>
+                <Label class="t-14" textWrap="true" textTransform="uppercase" [text]="item.item.title  | truncate:[68, '...']" row="0" col="1"></Label>
                 <Label class="item-email" [text]="item.item.date_published | date: 'mediumDate'" row="1" col="1"></Label>
                 <Button text="&#xf105;" class="far -simple -rounded-lg" [nsRouterLink]="['item', item.item.id]" width="50px" hight="50px" row="0" col="2" rowspan="2" horizontalAlignment="right"></Button>
             </GridLayout>

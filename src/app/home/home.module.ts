@@ -7,7 +7,6 @@ import { HomeComponent } from "./home.component";
 import { HomeDetailComponent } from "./home-detail/home-detail.component";
 
 import { MainPipe } from '../../pipes/pipes.module';
-import { TimeAgoPipe } from 'time-ago-pipe';
 
 @NgModule({
     imports: [
@@ -18,8 +17,6 @@ import { TimeAgoPipe } from 'time-ago-pipe';
     declarations: [
         HomeComponent,
         HomeDetailComponent,
-        TimeAgoPipe,
-        
     ],
     schemas: [
         NO_ERRORS_SCHEMA

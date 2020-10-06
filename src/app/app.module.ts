@@ -28,7 +28,7 @@ import { AuthModule } from "./shared/auth/auth.module.tns"
         NativeScriptMaterialActivityIndicatorModule
     ],
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     schemas: [
         NO_ERRORS_SCHEMA

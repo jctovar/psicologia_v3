@@ -6,11 +6,14 @@ import { TruncatePipe } from "./truncate.pipe"; // <---
 import { HtmlSanitizerPipe } from "./html-sanitizer.pipe"; // <---
 //import { StoragePipe } from "./firestorage.pipe"; // <---
 
+import { TimeAgoPipe } from 'time-ago-pipe';
+
 @NgModule({
     declarations:[
         GravatarPipe,
         HtmlSanitizerPipe,
-        TruncatePipe
+        TruncatePipe,
+        TimeAgoPipe
         //StoragePipe
     ], // <---
     imports:[
@@ -19,7 +22,8 @@ import { HtmlSanitizerPipe } from "./html-sanitizer.pipe"; // <---
     exports:[
         GravatarPipe,
         HtmlSanitizerPipe,
-        TruncatePipe
+        TruncatePipe,
+        TimeAgoPipe
         //StoragePipe
     ] // <---
 })

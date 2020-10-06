@@ -40,6 +40,23 @@ export class FirestoreService {
         
     }
 
+    public GetBookMark(id): Promise<any> {
+        const uuid = getUUID();
+
+        const usersCollection = firestore.collection("usuarios").doc(uuid).collection("marcadores").where("item.id", "==", id);
+
+        return usersCollection.get().then(querySnapshot => {
+            let items = [];
+            querySnapshot.forEach(doc => {
+                items.push( doc.data() )
+                //console.log('######' + doc.id, " => ", doc.data());
+            });
+            
+            return items;
+        });
+        
+    }
+
     public SetBookMarks(item) {
         const uuid = getUUID();
         
