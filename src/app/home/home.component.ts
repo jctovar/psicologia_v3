@@ -11,14 +11,13 @@ import { initializeOnAngular } from 'nativescript-image-cache';
 
 var cache = require("nativescript-cache");
 
-//import { getUUID } from '@owen-it/nativescript-uuid';
 
 @Component({
     selector: "Home",
     templateUrl: "./home.component.html"
 })
 export class HomeComponent implements OnInit {
-    data = [];
+    items = [];
     condition: boolean = false;
 
     constructor(private firestoreService: FirestoreService) {
@@ -42,13 +41,13 @@ export class HomeComponent implements OnInit {
             if (result.items.length > 0) {
                 this.condition = true;
                 cache.set("wordpress", JSON.stringify(result.items));
-                this.data = JSON.parse(cache.get("wordpress"));
+                this.items = JSON.parse(cache.get("wordpress"));
                 //console.log("from the cache... " + cache.get("wordpress"));
             } 
         }, (e) => {
             console.log("ocurrio un error: " + e);
             this.condition = true;
-            this.data = JSON.parse(cache.get("wordpress"));
+            this.items = JSON.parse(cache.get("wordpress"));
             this.snackBarSimple("cargando datos del cache...")
         });
     }
@@ -59,8 +58,8 @@ export class HomeComponent implements OnInit {
 
     save(item) {
         console.log(cache.get("uid"))
-        this.firestoreService.SaveLike(item).then(result => {
-            if (result) this.snackBarSimple("marcador añadido...")
+        this.firestoreService.SetBookMarks(item).then(result => {
+            if (result) this.snackBarSimple("marcador guardado...")
         });
         
     }

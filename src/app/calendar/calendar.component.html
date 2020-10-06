@@ -10,7 +10,7 @@
     <StackLayout class="hr m-10"></StackLayout>
     <ListView [items]="items" height="100%">
         <ng-template let-item="item">
-            <GridLayout columns="60, *, 50" rows="*, auto">
+            <GridLayout columns="60, *, 30" rows="*, auto">
                 <StackLayout class="item-calendar" orientation="vertical" width="50" height="50" row="0" col="0" rowspan="2">
                     <Label padding="0" class="item-day" [text]="item.startdate | date : 'd'"></Label>
                     <Label padding="0" class="item-email" [text]="item.startdate | date : 'LLL'"></Label>

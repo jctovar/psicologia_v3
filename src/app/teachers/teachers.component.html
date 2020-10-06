@@ -12,7 +12,7 @@
     </SearchBar>
     <ListView [items]="items" height="100%">
         <ng-template let-item="item">
-            <GridLayout columns="60, *, 50" rows="*, auto">
+            <GridLayout columns="60, *, 30" rows="*, auto">
                 <Image class="img-circle"  [src]="item.email | gravatar" horizontalAlignment="center" width="50" height="50" row="0" col="0" rowspan="2"></Image>
                 <Label class="item-name" [nsRouterLink]="['item', item.id]" textTransform="capitalize" [text]="item.name" row="0" col="1"></Label>
                 <Label class="item-email" [nsRouterLink]="['item', item.id]" [text]="item.email" row="2" col="1"></Label>

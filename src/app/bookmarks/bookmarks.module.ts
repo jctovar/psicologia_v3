@@ -6,10 +6,13 @@ import { BookmarksComponent } from "./bookmarks.component";
 
 import { CoordinationDetailComponent } from "./coordination-detail/coordination-detail.component";
 
+import { MainPipe } from '../../pipes/pipes.module';
+
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        BookmarksRoutingModule
+        BookmarksRoutingModule,
+        MainPipe,
     ],
     declarations: [
         BookmarksComponent,
