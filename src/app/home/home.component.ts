@@ -59,7 +59,10 @@ export class HomeComponent implements OnInit {
 
     save(item) {
         console.log(cache.get("uid"))
-        this.firestoreService.SaveLike();
+        this.firestoreService.SaveLike(item).then(result => {
+            if (result) this.snackBarSimple("marcador añadido...")
+        });
+        
     }
 
     snackBarSimple(message) {

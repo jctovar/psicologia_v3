@@ -33,6 +33,13 @@ https://docs.nativescript.org/angular/ui/professional-ui-components/ng-SideDrawe
     
                 <StackLayout class="hr"></StackLayout>
 
+                <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/bookmarks')" (tap)="onNavItemTap('/bookmarks')">
+                    <Label col="0" text="&#xf02e;" class="nt-icon far"></Label>
+                    <Label col="1" text="Marcadores" class="p-r-10"></Label>
+                </GridLayout>
+
+                <StackLayout class="hr"></StackLayout>
+
                 <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/about')" (tap)="onNavItemTap('/about')">
                     <Label col="0" text="&#xf05a;" class="nt-icon far"></Label>
                     <Label col="1" text="Acerca" class="p-r-10"></Label>

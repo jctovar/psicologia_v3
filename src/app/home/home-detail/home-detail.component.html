@@ -13,7 +13,7 @@
         <StackLayout orientation="horizontal" horizontalAlignment="right">
             <Button text="&#xf08e;" class="far -simple -rounded-lg" (tap)="openBrowser(item.url)" width="60px"></Button>
             <Button text="&#xf1e0;" class="far -simple -rounded-lg" (tap)="share(item)" width="60px"></Button>
-            <Button text="&#xf004;" class="far -simple -rounded-lg" (tap)="like(item)" width="60px"></Button>
+            <Button text="&#xf02e;" class="far -simple -rounded-lg" (tap)="save(item)" width="60px"></Button>
         </StackLayout>
         <Label padding="10" class="label-title" textTransform="uppercase" textAlignment="left" textWrap="true" [text]="item.title"></Label>
         <Label padding="10" class="h5 text-primary card-description" textAlignment="left" textWrap="true" [text]="item.date_published | timeAgo"></Label>

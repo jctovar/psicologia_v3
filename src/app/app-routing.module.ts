@@ -8,6 +8,7 @@ const routes: Routes = [
     { path: "calendar", loadChildren: () => import("~/app/calendar/calendar.module").then((m) => m.CalendarModule) },
     { path: "teachers", loadChildren: () => import("~/app/teachers/teachers.module").then((m) => m.TeachersModule) },
     { path: "coordination", loadChildren: () => import("~/app/coordination/coordination.module").then((m) => m.CoordinationModule) },
+    { path: "bookmarks", loadChildren: () => import("~/app/bookmarks/bookmarks.module").then((m) => m.BookmarksModule) },
     { path: "about", loadChildren: () => import("~/app/about/about.module").then((m) => m.AboutModule) }
 ];
 

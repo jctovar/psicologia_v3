@@ -23,18 +23,15 @@ export class FirestoreService {
         
     }
 
-    public SaveLike() {
+    public SaveLike(item) {
         
         const usersCollection = firestore.collection("usuarios").doc(this.uid).collection("marcadores");
 
-        usersCollection.add({
-            name: "San Francisco",
-            state: "CA",
-            country: "USA",
-            capital: false,
-            population: 860000,
+        return usersCollection.add({item
           }).then(documentRef => {
-            console.log(`Test ID: ${documentRef.id}`);
+            //console.log(`Test ID: ${documentRef.id}`);
+
+            return documentRef.id;
           });
     }
 
