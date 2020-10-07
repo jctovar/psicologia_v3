@@ -3,6 +3,8 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import db from "~/json/teachers.json";
 import { SearchBar } from "tns-core-modules/ui/search-bar";
+import * as utils from "tns-core-modules/utils/utils";
+import { isAndroid, isIOS, device, screen } from "tns-core-modules/platform";
 
 @Component({
     selector: "Teachers",
@@ -24,6 +26,10 @@ export class TeachersComponent implements OnInit {
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
+
+        if(isAndroid) {
+            utils.ad.dismissSoftInput();
+        }
     }
 
     onSubmit(args) {

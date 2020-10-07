@@ -8,7 +8,6 @@
 <ScrollView class="page__content">
     <StackLayout *ngIf="condition" orientation="vertical" horizontalAlignment="right">
         <NSImage height="240" stretch="fill" [src]="item.image"  placeholder="res://placeholder"></NSImage>
-        
         <StackLayout orientation="horizontal" horizontalAlignment="right">
             <Button text="&#xf08e;" class="far -simple -rounded-lg" (tap)="openBrowser(item.url)" width="60px"></Button>
             <Button text="&#xf1e0;" class="far -simple -rounded-lg" (tap)="shareItem(item)" width="60px"></Button>

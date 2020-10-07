@@ -6,9 +6,8 @@ import * as SocialShare from "nativescript-social-share";
 import * as utils from "tns-core-modules/utils/utils";
 import { layout } from "tns-core-modules/utils/utils";
 import { EventData } from "tns-core-modules/data/observable";
-
-import { initializeOnAngular } from 'nativescript-image-cache';
-
+import { FirestoreService } from "../../shared/firestore.service";
+import { SnackBar, SnackBarOptions } from "@nstudio/nativescript-snackbar";
 
 //import { DataService, DataItem } from "../../shared/data.service";
 
@@ -30,10 +29,8 @@ export class HomeDetailComponent implements OnInit {
 
     constructor(
        // private _data: DataService,
-        private _route: ActivatedRoute, private _routerExtensions: RouterExtensions, private changeDetectorRef: ChangeDetectorRef
-    ) { 
-        initializeOnAngular();
-    }
+        private _route: ActivatedRoute, private _routerExtensions: RouterExtensions, private changeDetectorRef: ChangeDetectorRef, private firestoreService: FirestoreService
+    ) { }
 
     ngOnInit(): void {
         //console.log(this._route.snapshot.params);
@@ -43,7 +40,6 @@ export class HomeDetailComponent implements OnInit {
         //this.item = this._data.getItem(id);
 
         this.getCache(this.data[0].id);
-        
     }
 
     onBackTap(): void {
@@ -59,9 +55,9 @@ export class HomeDetailComponent implements OnInit {
                // we found it
                //console.log(JSON.stringify(this.json[i].content_text) );
                this.item = this.json[i];
+               if (this.item) this.condition = true;
             }
         }
-
     }
 
     openBrowser(url) {
@@ -69,13 +65,15 @@ export class HomeDetailComponent implements OnInit {
         utils.openUrl(url)
     }
 
-    share(item) {
+    shareItem(item) {
         //console.log('share... ', item.url, item.name);
         SocialShare.shareUrl(item.url, item.title);
     }
 
-    like(item) {
-        
+    saveItem(item) {
+        this.firestoreService.SetBookMarks(item).then(result => {
+            if (result) this.snackBarSimple("marcador guardado...")
+        });
     }
 
     onWebViewLoadFinished(event: EventData) {
@@ -112,5 +110,10 @@ export class HomeDetailComponent implements OnInit {
             );
         }
     }
-    
+
+    snackBarSimple(message) {
+        const snackbar = new SnackBar();
+        
+        snackbar.simple(message, '#ffffff', '#4f5154', 3, false);
+    }
 }

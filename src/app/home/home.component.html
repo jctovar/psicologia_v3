@@ -18,8 +18,8 @@
                         <Label class="h5 text-primary card-description" textAlignment="right" textWrap="true" [text]="item.date_published | timeAgo"></Label>
                     </StackLayout>
                     <StackLayout orientation="horizontal" row="2" col="1" horizontalAlignment="right">
-                        <Button text="&#xf1e0;" class="far -simple -rounded-lg" (tap)="share(item)" width="60px"></Button>
-                        <Button text="&#xf02e;" class="far -simple -rounded-lg" (tap)="save(item)" width="60px"></Button>
+                        <Button text="&#xf1e0;" class="far -simple -rounded-lg" (tap)="shareItem(item)" width="60px"></Button>
+                        <Button text="&#xf02e;" class="far -simple -rounded-lg" (tap)="saveItem(item)" width="60px"></Button>
                     </StackLayout>
                 </GridLayout>
             </MDCardView>

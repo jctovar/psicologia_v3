@@ -7,8 +7,6 @@ import { SnackBar, SnackBarOptions } from "@nstudio/nativescript-snackbar";
 import { PullToRefresh } from '@nstudio/nativescript-pulltorefresh';
 import { FirestoreService } from "../shared/firestore.service";
 
-import { initializeOnAngular } from 'nativescript-image-cache';
-
 var cache = require("nativescript-cache");
 
 @Component({
@@ -21,13 +19,10 @@ export class HomeComponent implements OnInit {
 
     constructor(private firestoreService: FirestoreService) {
         // Use the component constructor to inject providers.
-        initializeOnAngular();
-        // this.auth.anonymous();
     }
 
     ngOnInit(): void {
         this.loadRSS()
-        
     }
 
     onDrawerButtonTap(): void {
@@ -41,26 +36,23 @@ export class HomeComponent implements OnInit {
                 this.condition = true;
                 cache.set("wordpress", JSON.stringify(result.items));
                 this.items = JSON.parse(cache.get("wordpress"));
-                //console.log("from the cache... " + cache.get("wordpress"));
             } 
-        }, (e) => {
-            console.log("ocurrio un error: " + e);
+        }, (err) => {
+            console.log("ocurrio un error: " + err);
             this.condition = true;
             this.items = JSON.parse(cache.get("wordpress"));
             this.snackBarSimple("cargando datos del cache...")
         });
     }
 
-    share(item) {
+    shareItem(item) {
         SocialShare.shareUrl(item.url, item.title);
     }
 
-    save(item) {
-        console.log(cache.get("uid"))
+    saveItem(item) {
         this.firestoreService.SetBookMarks(item).then(result => {
             if (result) this.snackBarSimple("marcador guardado...")
         });
-        
     }
 
     snackBarSimple(message) {

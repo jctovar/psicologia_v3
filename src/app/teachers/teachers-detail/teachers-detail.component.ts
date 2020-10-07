@@ -30,8 +30,6 @@ export class TeachersDetailComponent implements OnInit {
         if(isAndroid) {
             utils.ad.dismissSoftInput();
         }
-        
-        //this.item = this._data.getItem(id);
     }
 
     onBackTap(): void {
