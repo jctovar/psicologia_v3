@@ -70,4 +70,27 @@ export class FirestoreService {
           });
     }
 
+    public DeleteBookMark(id): Promise<any> {
+        const uuid = getUUID();
+
+        const usersCollection = firestore.collection("usuarios").doc(uuid).collection("marcadores").where("item.id", "==", id);
+
+        return usersCollection.get().then(querySnapshot => {
+            let items = [];
+            querySnapshot.forEach(doc => {
+                items.push( doc.data() )
+                //console.log('######' + doc.id, " => ", doc.data());
+                firestore.collection("usuarios").doc(uuid).collection("marcadores").doc(doc.id).delete().then(function() {
+                    console.log("Document successfully deleted!");
+                }).catch(function(error) {
+                    console.error("Error removing document: ", error);
+                });
+                
+            });
+            
+            return items;
+        });
+        
+    }
+
 }

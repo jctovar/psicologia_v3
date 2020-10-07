@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
+import * as SocialShare from "nativescript-social-share";
+import * as utils from "tns-core-modules/utils/utils";
 import { FirestoreService } from "../../shared/firestore.service";
-import { openUrl } from "tns-core-modules/utils/utils";
 
 @Component({
     selector: "BookmarksDetail",
@@ -23,16 +24,23 @@ export class BookmarksDetailComponent implements OnInit {
         this._routerExtensions.back();
     }
 
-    openEmail(url) {
-        console.log('mailto:' + url);
-        openUrl('mailto:' + url)
+    openBrowser(url) {
+        utils.openUrl(url)
+    }
+
+    deleteItem(item) {
+        this.firestoreService.DeleteBookMark(item.id);
+        this._routerExtensions.navigateByUrl("home");
+    }
+
+    shareItem(item) {
+        SocialShare.shareUrl(item.url, item.title);
     }
 
     getItem(id): void {
         this.firestoreService.GetBookMark(id).then(result => {
             this.item = result[0].item;
-            // console.log('resultado... ' + JSON.stringify(this.item))
-            //if (this.item.length > 0) this.condition = true;
+            if (this.item) this.condition = true;
         });
     }
 }

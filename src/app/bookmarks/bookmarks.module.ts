@@ -4,7 +4,7 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { BookmarksRoutingModule } from "./bookmarks-routing.module";
 import { BookmarksComponent } from "./bookmarks.component";
 
-import { BookmarksDetailComponent } from "./coordination-detail/bookmarks-detail.component";
+import { BookmarksDetailComponent } from "./bookmarks-detail/bookmarks-detail.component";
 
 import { MainPipe } from '../../pipes/pipes.module';
 

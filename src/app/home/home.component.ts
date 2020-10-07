@@ -11,7 +11,6 @@ import { initializeOnAngular } from 'nativescript-image-cache';
 
 var cache = require("nativescript-cache");
 
-
 @Component({
     selector: "Home",
     templateUrl: "./home.component.html"
