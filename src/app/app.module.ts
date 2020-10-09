@@ -25,7 +25,7 @@ import { AuthModule } from "./shared/auth/auth.module.tns"
         NativeScriptModule,
         NativeScriptUISideDrawerModule,
         NativeScriptMaterialCardViewModule,
-        NativeScriptMaterialActivityIndicatorModule
+        NativeScriptMaterialActivityIndicatorModule,
     ],
     declarations: [
         AppComponent,

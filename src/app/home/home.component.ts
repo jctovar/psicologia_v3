@@ -4,10 +4,11 @@ import * as app from "tns-core-modules/application";
 import { getJSON } from "tns-core-modules/http";
 import * as SocialShare from "nativescript-social-share";
 import { SnackBar, SnackBarOptions } from "@nstudio/nativescript-snackbar";
-import { PullToRefresh } from '@nstudio/nativescript-pulltorefresh';
 import { FirestoreService } from "../shared/firestore.service";
-
 import { initializeOnAngular } from 'nativescript-image-cache';
+
+import { registerElement } from "nativescript-angular/element-registry";
+registerElement("PullToRefresh", () => require("@nstudio/nativescript-pulltorefresh").PullToRefresh);
 
 var cache = require("nativescript-cache");
 
@@ -35,26 +36,20 @@ export class HomeComponent implements OnInit {
     loadRSS() {
         getJSON("https://suayed.iztacala.unam.mx/feed/json").then((result: any) => {
             if (result.items.length > 0) {
-                this.condition = true;
                 cache.set("wordpress", JSON.stringify(result.items));
                 this.items = JSON.parse(cache.get("wordpress"));
+                this.condition = true;
             } 
         }, (err) => {
             console.log("ocurrio un error: " + err);
-            this.condition = true;
             this.items = JSON.parse(cache.get("wordpress"));
             this.snackBarSimple("cargando datos del cache...")
+            this.condition = true;
         });
     }
 
     shareItem(item) {
         SocialShare.shareUrl(item.url, item.title);
-    }
-
-    saveItem(item) {
-        this.firestoreService.SetBookMarks(item).then(result => {
-            if (result) this.snackBarSimple("marcador guardado...")
-        });
     }
 
     snackBarSimple(message) {
@@ -64,8 +59,11 @@ export class HomeComponent implements OnInit {
     }
 
     refreshList(args) {
-        const pullRefresh = args.object as PullToRefresh;
-        
+        const pullRefresh = args.object;
+
+        console.log("reload data")
+        this.loadRSS()
+
         setTimeout(function () {
            pullRefresh.refreshing = false;
         }, 1000);

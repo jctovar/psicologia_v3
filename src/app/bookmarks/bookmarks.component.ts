@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { FirestoreService } from "../shared/firestore.service";
+import { SnackBar, SnackBarOptions } from "@nstudio/nativescript-snackbar";
 
 @Component({
     selector: "Bookmarks",
@@ -27,10 +28,16 @@ export class BookmarksComponent implements OnInit {
     }
 
     loadDataBase() {
-        //this.snackBarSimple("Cargando datos...");
+        this.snackBarSimple("Cargando datos...");
         this.firestoreService.GetBookMarks().then(result => {
             this.items = result;
             if (this.items.length > 0) this.condition = true;
         });
+    }
+
+    snackBarSimple(message) {
+        const snackbar = new SnackBar();
+        
+        snackbar.simple(message, '#ffffff', '#4f5154', 3, false);
     }
 }

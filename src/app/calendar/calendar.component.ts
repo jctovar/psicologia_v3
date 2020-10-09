@@ -6,6 +6,9 @@ import * as Calendar from "nativescript-calendar";
 import { confirm, ConfirmOptions } from "tns-core-modules/ui/dialogs";
 import { alert, prompt } from "tns-core-modules/ui/dialogs";
 
+import { registerElement } from "nativescript-angular/element-registry";
+registerElement("PullToRefresh", () => require("@nstudio/nativescript-pulltorefresh").PullToRefresh);
+
 @Component({
     selector: "Calendar",
     templateUrl: "./calendar.component.html"
@@ -98,4 +101,15 @@ export class CalendarComponent implements OnInit {
             message: message
         });
     }
+
+    refreshList(args) {
+        const pullRefresh = args.object;
+
+        console.log("reload data")
+        this.loadDataBase()
+
+        setTimeout(function () {
+           pullRefresh.refreshing = false;
+        }, 1000);
+   }
 }
