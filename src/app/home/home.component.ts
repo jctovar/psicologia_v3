@@ -7,6 +7,8 @@ import { SnackBar, SnackBarOptions } from "@nstudio/nativescript-snackbar";
 import { PullToRefresh } from '@nstudio/nativescript-pulltorefresh';
 import { FirestoreService } from "../shared/firestore.service";
 
+import { initializeOnAngular } from 'nativescript-image-cache';
+
 var cache = require("nativescript-cache");
 
 @Component({
@@ -18,7 +20,7 @@ export class HomeComponent implements OnInit {
     condition: boolean = false;
 
     constructor(private firestoreService: FirestoreService) {
-        // Use the component constructor to inject providers.
+        initializeOnAngular();
     }
 
     ngOnInit(): void {

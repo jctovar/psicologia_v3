@@ -6,10 +6,13 @@ import { CoordinationComponent } from "./coordination.component";
 
 import { CoordinationDetailComponent } from "./coordination-detail/coordination-detail.component";
 
+import { MainPipe } from '../../pipes/pipes.module';
+
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        CoordinationRoutingModule
+        CoordinationRoutingModule,
+        MainPipe
     ],
     declarations: [
         CoordinationComponent,
