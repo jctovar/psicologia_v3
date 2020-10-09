@@ -6,9 +6,9 @@
 </ActionBar>
 
 <PullToRefresh (refresh)="refreshList($event)" indicatorFillColor="#ffffff" indicatorColor="#ec407a">
-    <ScrollView class="page__content">
+    <StackLayout class="page__content">
         <StackLayout *ngIf="condition">
-            <Label  padding="10 10" text="Periodo 2021-1"></Label>
+            <Label padding="10 10" text="Periodo 2021-1"></Label>
             <StackLayout class="hr m-10"></StackLayout>
             <ListView [items]="items" height="100%">
                 <ng-template let-item="item">
@@ -34,5 +34,5 @@
                 <Image src="~/images/bg_01.png" row="0" col="0"></Image>
             </GridLayout>
         </StackLayout>
-    </ScrollView>
+    </StackLayout>
 </PullToRefresh>
