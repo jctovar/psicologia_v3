@@ -35,7 +35,7 @@ export class CalendarComponent implements OnInit {
         //this.snackBarSimple("Cargando datos...");
         this.firestoreService.GetDataCalendar().then(result => {
             this.items = result;
-            console.log(this.items);
+            //console.log(this.items);
             if (this.items.length > 0) this.condition = true;
         });
     }

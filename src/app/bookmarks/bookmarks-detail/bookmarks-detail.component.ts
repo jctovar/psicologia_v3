@@ -4,6 +4,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 import * as SocialShare from "nativescript-social-share";
 import * as utils from "tns-core-modules/utils/utils";
 import { FirestoreService } from "../../shared/firestore.service";
+import { confirm, ConfirmOptions } from "tns-core-modules/ui/dialogs";
 
 @Component({
     selector: "BookmarksDetail",
@@ -29,8 +30,7 @@ export class BookmarksDetailComponent implements OnInit {
     }
 
     deleteItem(item) {
-        this.firestoreService.DeleteBookMark(item.id);
-        this._routerExtensions.navigateByUrl("home");
+        this.showConfirmDialog(item);
     }
 
     shareItem(item) {
@@ -41,6 +41,23 @@ export class BookmarksDetailComponent implements OnInit {
         this.firestoreService.GetBookMark(id).then(result => {
             this.item = result[0].item;
             if (this.item) this.condition = true;
+        });
+    }
+
+    showConfirmDialog(item) {
+        const confirmOptions: ConfirmOptions = {
+            title: "Eliminar el elemento",
+            message: "Desea eliminar el elemento de sus marcadores?",
+            okButtonText: "Si",
+            cancelButtonText: "No"
+        };
+        confirm(confirmOptions)
+            .then((result) => {
+                if(result == true) {
+                    console.log("voy a eliminar el elemento....");
+                    this.firestoreService.DeleteBookMark(item.id);
+                    this._routerExtensions.navigateByUrl("home");
+                }
         });
     }
 }
